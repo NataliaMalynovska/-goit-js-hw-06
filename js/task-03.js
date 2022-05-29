@@ -18,5 +18,5 @@ const itemImg = images.map(({ url, alt }) => `<li class="item"><img class="item_
 
 galleryImages.insertAdjacentHTML("beforeend", itemImg);  
 
-console.log(galleryImages)
+// console.log(galleryImages)
 
