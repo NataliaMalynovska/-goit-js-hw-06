@@ -7,25 +7,20 @@ const refs = {
   destroyBoxes: document.querySelector('button[data-destroy]'),
   divBoxes: document.querySelector("#boxes"),
 }
-// Таким шляхом взагалі нічого не виводить
-// const amount = refs.select.value;
-// console.log(amount)
 
-// Таким шляхом отримую amount як число, але createBoxes його не бачить як число
-refs.select.addEventListener("input", (event) => {
-  const amount = event.currentTarget.value;
-  console.log(amount);
-})
+refs.createBoxes.addEventListener("click", onClickBtnCreateBoxes);
+function onClickBtnCreateBoxes() {
+  const currentValue = refs.select.value;
+  createBoxes(currentValue)
+}
 
-//  Создание 
 refs.createBoxes.addEventListener("click", createBoxes);
- 
-function createBoxes(amount) {
 
+function createBoxes(amount) {
   const boxes = []
   let sizes = 30;
-  // поставила 3, щоб було видно, що функція працює
-  for (let i = 0; i < 3; i += 1) {
+
+  for (let i = 0; i < amount; i += 1) {
     const box = document.createElement("div");
     box.style.width = sizes  + "px";
     box.style.height = sizes  + "px";
@@ -38,9 +33,9 @@ function createBoxes(amount) {
     console.log(refs.divBoxes)
   }
 }
-// Удаление
+
 refs.destroyBoxes.addEventListener("click", (event) => {
   refs.divBoxes.innerHTML = "";
 })
 
-// Допоможіть знайти помилку, чому createBoxes не приймає amount?
+
